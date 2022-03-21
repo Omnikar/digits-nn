@@ -65,18 +65,6 @@ impl Network {
         Self { conf, state }
     }
 
-    pub fn from_conf(conf: NetConf) -> Self {
-        let state = {
-            let layers = std::iter::once(conf.layers[0].weights.ncols())
-                .chain(conf.layers.iter().map(|layer| layer.biases.nrows()))
-                .map(|n| Vector::from_element(n, 0.0))
-                .collect();
-            NetState { layers }
-        };
-        let conf = Arc::new(RwLock::new(conf));
-        Self { conf, state }
-    }
-
     pub fn process(&mut self, input: &Vector) {
         self.state.layers[0].copy_from(input);
         for (layer, (inp_i, out_i)) in self
@@ -233,6 +221,7 @@ mod funcs {
         pub deriv: fn(&Vector, &Vector) -> Vector,
     }
 
+    #[allow(dead_code)]
     impl Cost {
         pub const SQUARE: Self = Self {
             fun: Self::square,

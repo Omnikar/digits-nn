@@ -39,11 +39,6 @@ impl<T: Send + 'static, S: Send + 'static> ThreadPool<T, S> {
     pub fn results(&self, count: usize) -> impl Iterator<Item = T> + '_ {
         (0..count).map(|_| self.receiver.recv().unwrap())
     }
-
-    #[inline]
-    pub fn size(&self) -> usize {
-        self.workers.len()
-    }
 }
 
 impl<T: Send + 'static, S: Send + 'static> Drop for ThreadPool<T, S> {
