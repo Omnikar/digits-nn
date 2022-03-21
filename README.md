@@ -7,6 +7,8 @@ handwritten digits from the MNIST dataset.
 The [nalgebra](https://crates.io/crates/nalgebra) crate is
 used for linear algebra.
 
+Some of the code is somewhat spaghetti-ish at the moment.
+
 ## Network info
 
 Softmax activation is used for the output layer; ReLU activation
