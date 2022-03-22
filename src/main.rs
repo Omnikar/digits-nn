@@ -173,7 +173,7 @@ fn save(conf: &network::NetConf) -> std::io::Result<()> {
         .copied()
         .flat_map(|n| n.to_be_bytes().into_iter())
         .collect::<Vec<_>>();
-    let mut file = std::fs::File::create("non_tracked/network")?;
+    let mut file = std::fs::File::create("network")?;
     file.write_all(&bytes)?;
     Ok(())
 }
