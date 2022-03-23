@@ -33,6 +33,12 @@ The values I used for the following configurable parameters are:
 
 ## Usage
 
+Build
+
+```bash
+cargo build --release
+```
+
 The [RON](https://github.com/ron-rs/ron) format is used for
 configuration.
 
