@@ -69,7 +69,7 @@ fn main() -> anyhow::Result<()> {
                 conf.load_iter((flattened - &step).iter().copied());
                 overall_avg_cost += avg_cost / nbatches as f64;
                 println!(
-                    "\x1b[2Abatch {}/{} complete; avg cost: {}\n{}",
+                    "\x1b[2Abatch {}/{} complete; avg cost: {}\n{}\x1b[K",
                     i + 1,
                     nbatches,
                     avg_cost,
