@@ -29,7 +29,7 @@ The values I used for the following configurable parameters are:
 * learning rate: 0.01
 * momentum decay: 0.9
 * batch size: 300
-* epochs: 100
+* epochs: 10
 
 ## Usage
 
